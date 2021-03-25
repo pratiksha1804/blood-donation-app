@@ -8,7 +8,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
-
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,13 +71,7 @@ export default function CenteredGrid() {
 
     };
 
-    const saveData = (responsedata, data) => {
 
-    };
-
-    const dataSubmit = () => {
-
-    };
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("hi")
@@ -91,6 +85,11 @@ export default function CenteredGrid() {
             "bloodgroup": bloodgroup
         }
         console.log("my form data is.......", data);
+        axios.post(`url`, { data })
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
     }
     return (
 
